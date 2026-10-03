@@ -3,838 +3,1339 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101827">
-
-<title>For Thangoo</title>
+<meta name="theme-color" content="#08111f">
+<title>Thangoo ❤️</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    min-height:100vh;
-    font-family:Georgia,"Times New Roman",serif;
-    color:#f8f1e7;
-    background:
-        radial-gradient(circle at 15% 10%,rgba(255,213,143,.12),transparent 28%),
-        radial-gradient(circle at 85% 80%,rgba(120,160,255,.10),transparent 30%),
-        linear-gradient(160deg,#080d18,#111a2b 50%,#070b13);
-    overflow-x:hidden;
+  min-height:100vh;
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(86,130,190,.20),transparent 30%),
+    radial-gradient(circle at 85% 80%,rgba(190,150,80,.10),transparent 30%),
+    linear-gradient(160deg,#07101d,#0a1728 50%,#050b14);
+  color:#f7f3ea;
+  overflow-x:hidden;
 }
 
-/* soft floating lights */
-
-.light{
-    position:fixed;
-    width:5px;
-    height:5px;
-    border-radius:50%;
-    background:#e8c77c;
-    opacity:.35;
-    pointer-events:none;
-    animation:float 7s infinite ease-in-out;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 15% 25%,rgba(255,255,255,.35) 0 1px,transparent 2px),
+    radial-gradient(circle at 75% 18%,rgba(255,255,255,.25) 0 1px,transparent 2px),
+    radial-gradient(circle at 55% 70%,rgba(255,255,255,.20) 0 1px,transparent 2px),
+    radial-gradient(circle at 90% 50%,rgba(255,255,255,.20) 0 1px,transparent 2px);
+  background-size:180px 180px,240px 240px,210px 210px,260px 260px;
+  opacity:.7;
 }
 
-.light:nth-child(1){
-    left:12%;
-    top:22%;
+.screen{
+  min-height:100vh;
+  display:none;
+  position:relative;
+  z-index:1;
 }
 
-.light:nth-child(2){
-    left:78%;
-    top:18%;
-    animation-delay:2s;
+.screen.active{
+  display:block;
 }
 
-.light:nth-child(3){
-    left:22%;
-    top:75%;
-    animation-delay:4s;
+.center{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
 }
 
-.light:nth-child(4){
-    left:88%;
-    top:65%;
-    animation-delay:1s;
-}
-
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-        opacity:.25;
-    }
-
-    50%{
-        transform:translateY(-22px);
-        opacity:.7;
-    }
-}
-
-
-/* WELCOME */
-
-#welcome{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-}
-
-.welcome-box{
-    width:100%;
-    max-width:430px;
-    text-align:center;
-    padding:48px 28px;
-    border-radius:32px;
-
-    background:rgba(18,27,44,.72);
-
-    border:1px solid rgba(235,202,137,.18);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.5),
-        inset 0 0 50px rgba(255,255,255,.015);
-
-    backdrop-filter:blur(18px);
-
-    animation:enter 1.2s ease;
-}
-
-@keyframes enter{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.welcome{
+  width:100%;
+  max-width:430px;
+  text-align:center;
+  padding:45px 25px;
 }
 
 .moon{
-    font-size:45px;
-    margin-bottom:20px;
+  font-size:48px;
+  margin-bottom:22px;
+  filter:drop-shadow(0 0 18px rgba(255,220,150,.35));
 }
 
-.small-line{
-    color:#b9b1a3;
-    font-size:12px;
-    letter-spacing:2px;
-    margin-bottom:18px;
+.kicker{
+  font-size:11px;
+  letter-spacing:4px;
+  color:#cdbd91;
+  margin-bottom:18px;
 }
 
-.welcome-box h1{
-    font-size:34px;
-    letter-spacing:5px;
-    color:#e8ca87;
-    margin-bottom:25px;
+h1{
+  font-size:42px;
+  letter-spacing:5px;
+  font-weight:400;
+  margin-bottom:22px;
 }
 
-.intro{
-    color:#eee5d9;
-    font-size:17px;
-    line-height:1.9;
-    margin-bottom:28px;
+.welcome-text{
+  color:#c6cfda;
+  line-height:1.8;
+  font-size:15px;
+  margin-bottom:32px;
 }
 
-.signature{
-    color:#8f8a82;
-    font-size:12px;
-    letter-spacing:1px;
-    margin-bottom:28px;
+.by{
+  color:#9daaba;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:25px;
 }
 
-.open{
-    border:1px solid rgba(232,202,135,.45);
-    background:rgba(232,202,135,.10);
-    color:#ecd39a;
-
-    padding:13px 34px;
-
-    border-radius:50px;
-
-    font-family:inherit;
-    font-size:15px;
-
-    cursor:pointer;
-
-    transition:.3s;
+button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
 }
 
-.open:hover{
-    background:#e8ca87;
-    color:#111827;
+.primary-btn{
+  padding:14px 27px;
+  border-radius:30px;
+  color:#101722;
+  background:linear-gradient(135deg,#e8d29a,#b99a58);
+  font-size:14px;
+  letter-spacing:1px;
+  box-shadow:0 8px 30px rgba(190,155,80,.18);
 }
 
+.primary-btn:active{
+  transform:scale(.97);
+}
 
-/* HOME */
-
-#home{
-    display:none;
-
-    width:100%;
-    max-width:650px;
-
-    margin:auto;
-
-    padding:28px 18px 50px;
-
-    animation:enter .8s ease;
+.container{
+  width:100%;
+  max-width:520px;
+  margin:auto;
+  padding:30px 18px 50px;
 }
 
 .top{
-    text-align:center;
-    padding:25px 10px 30px;
+  text-align:center;
+  padding:25px 0 22px;
 }
 
-.top .tiny{
-    color:#8f8a82;
-    font-size:11px;
-    letter-spacing:2px;
-    margin-bottom:12px;
+.small-title{
+  color:#cdbd91;
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:12px;
 }
 
-.top h2{
-    color:#e8ca87;
-    font-size:29px;
-    margin-bottom:10px;
+.main-title{
+  font-size:32px;
+  font-weight:400;
+  letter-spacing:2px;
 }
 
-.top p{
-    color:#bdb6aa;
-    font-size:14px;
-    line-height:1.7;
+.sub{
+  margin-top:12px;
+  color:#9daaba;
+  font-size:14px;
+  line-height:1.7;
 }
-
-
-/* TABS */
 
 .tabs{
-    display:flex;
-    gap:9px;
-
-    padding:6px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    margin-bottom:20px;
+  display:flex;
+  gap:8px;
+  margin:22px 0;
+  padding:5px;
+  border-radius:18px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.07);
 }
 
 .tab{
-    flex:1;
-
-    padding:13px;
-
-    border:0;
-    border-radius:13px;
-
-    background:transparent;
-
-    color:#aaa49a;
-
-    font-family:inherit;
-    font-size:14px;
-
-    cursor:pointer;
-
-    transition:.3s;
+  flex:1;
+  padding:12px;
+  border-radius:14px;
+  background:transparent;
+  color:#8f9bab;
+  font-size:13px;
 }
 
 .tab.active{
-    background:rgba(232,202,135,.13);
-    color:#e8ca87;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(232,202,135,.12);
+  color:#f4e4b8;
+  background:rgba(214,181,111,.10);
 }
 
-
-/* MESSAGE */
-
-.message-card{
-    position:relative;
-
-    min-height:300px;
-
-    padding:35px 25px;
-
-    border-radius:27px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(25,36,57,.82),
-            rgba(12,19,32,.88)
-        );
-
-    border:1px solid rgba(232,202,135,.12);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.section{
+  display:none;
 }
 
-.message-card::before{
-    content:"";
-    position:absolute;
+.section.active{
+  display:block;
+}
 
-    top:18px;
-    left:50%;
+.card{
+  border:1px solid rgba(214,190,137,.15);
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.055),
+    rgba(255,255,255,.018)
+  );
+  border-radius:25px;
+  padding:25px;
+  margin-bottom:17px;
+  box-shadow:0 15px 45px rgba(0,0,0,.18);
+  backdrop-filter:blur(10px);
+}
 
-    width:45px;
-    height:1px;
+.card-label{
+  color:#bda875;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:18px;
+}
 
-    transform:translateX(-50%);
+.message{
+  color:#f0eee8;
+  font-size:18px;
+  line-height:1.8;
+  min-height:125px;
+  display:flex;
+  align-items:center;
+}
 
-    background:#caa967;
-    opacity:.5;
+.another{
+  width:100%;
+  padding:13px;
+  border-radius:16px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.08);
+  color:#d9c38d;
+  margin-top:15px;
+  font-size:13px;
+}
+
+.quote{
+  text-align:center;
+  color:#778495;
+  font-size:12px;
+  line-height:1.8;
+  padding:15px 20px;
+}
+
+.akash-head{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.heart{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.akash-title{
+  font-size:24px;
+  letter-spacing:2px;
+  font-weight:400;
+}
+
+.input{
+  width:100%;
+  padding:14px 15px;
+  margin-top:10px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.18);
+  color:#fff;
+  outline:none;
+  font-family:inherit;
+  font-size:14px;
+}
+
+.input:focus{
+  border-color:rgba(220,190,120,.45);
+}
+
+textarea.input{
+  min-height:110px;
+  resize:vertical;
+  line-height:1.6;
 }
 
 .label{
-    text-align:center;
-
-    color:#b99755;
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    margin-bottom:25px;
+  display:block;
+  color:#9daaba;
+  font-size:11px;
+  margin-top:13px;
+  letter-spacing:1px;
 }
 
-#messageText{
-    white-space:pre-line;
-
-    text-align:center;
-
-    color:#f2e9dc;
-
-    font-size:18px;
-
-    line-height:1.9;
+.login-btn,
+.send-btn{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#e8d29a,#b99a58);
+  color:#111925;
+  font-weight:bold;
 }
 
-.next{
-    align-self:center;
-
-    margin-top:28px;
-
-    padding:11px 24px;
-
-    border-radius:50px;
-
-    background:transparent;
-
-    border:1px solid rgba(232,202,135,.25);
-
-    color:#d9bd7c;
-
-    font-family:inherit;
-
-    cursor:pointer;
-
-    transition:.3s;
+.logout-btn{
+  width:100%;
+  margin-top:10px;
+  padding:11px;
+  border-radius:14px;
+  background:rgba(255,255,255,.05);
+  color:#9daaba;
+  border:1px solid rgba(255,255,255,.07);
 }
 
-.next:hover{
-    background:rgba(232,202,135,.1);
+.status{
+  text-align:center;
+  font-size:12px;
+  margin-top:12px;
+  color:#9daaba;
+  min-height:18px;
 }
 
-
-/* AKASH */
-
-#akashSection{
-    display:none;
+.hidden{
+  display:none !important;
 }
 
-.akash-card{
-    text-align:center;
+.received-title{
+  color:#cdbd91;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-bottom:15px;
 }
 
-.akash-label{
-    color:#caa967;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    margin-bottom:25px;
+.received{
+  padding:17px;
+  border-radius:18px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+  margin-bottom:12px;
 }
 
-.akash-text{
-    color:#f5ebdf;
-
-    font-size:20px;
-
-    line-height:2;
+.received-from{
+  color:#d7bd7e;
+  font-size:11px;
+  letter-spacing:1.5px;
+  margin-bottom:9px;
 }
 
+.received-message{
+  color:#e9e7e1;
+  line-height:1.65;
+  font-size:14px;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
 
-/* FOOTER */
+.received-time{
+  margin-top:10px;
+  color:#758294;
+  font-size:10px;
+}
+
+.empty{
+  text-align:center;
+  color:#788494;
+  padding:20px 5px;
+  line-height:1.7;
+  font-size:13px;
+}
 
 .footer{
-    text-align:center;
-
-    margin-top:30px;
-
-    color:#625f59;
-
-    font-size:10px;
-
-    letter-spacing:1px;
+  text-align:center;
+  color:#596677;
+  font-size:10px;
+  letter-spacing:1px;
+  padding:25px 0;
 }
 
+@media(max-width:380px){
+  h1{
+    font-size:35px;
+  }
+
+  .main-title{
+    font-size:27px;
+  }
+
+  .message{
+    font-size:16px;
+  }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- FLOATING LIGHTS -->
-
-<div class="light"></div>
-<div class="light"></div>
-<div class="light"></div>
-<div class="light"></div>
-
-
 <!-- WELCOME -->
+<div id="welcomeScreen" class="screen active">
+  <div class="center">
+    <div class="welcome">
 
-<section id="welcome">
+      <div class="moon">🌙</div>
 
-    <div class="welcome-box">
+      <div class="kicker">
+        A LITTLE PLACE MADE FOR YOU
+      </div>
 
-        <div class="moon">🌙</div>
+      <h1>THANGOO</h1>
 
-        <div class="small-line">
-            A LITTLE PLACE MADE FOR YOU
-        </div>
+      <div class="welcome-text">
+        Idhu oru website mattum illa...<br>
+        Unakku konjam nimmadhi thevai padumbodhu,
+        inga vandhu ukkandhukka oru chinna idam. ❤️
+      </div>
 
-        <h1>THANGOO</h1>
+      <div class="by">
+        made by Akash
+      </div>
 
-        <div class="intro">
-
-            Sometimes words don't fix everything.<br>
-            Sometimes we just need a small place<br>
-            where we can breathe for a while.<br><br>
-
-            So... I made this little place for you. ❤️
-
-        </div>
-
-        <div class="signature">
-            made by Akash
-        </div>
-
-        <button class="open" onclick="openSite()">
-            Come inside ✨
-        </button>
+      <button class="primary-btn" onclick="openSite()">
+        Come inside ✨
+      </button>
 
     </div>
-
-</section>
-
+  </div>
+</div>
 
 
 <!-- HOME -->
+<div id="homeScreen" class="screen">
 
-<main id="home">
-
+  <div class="container">
 
     <div class="top">
 
-        <div class="tiny">
-            JUST FOR YOU
-        </div>
+      <div class="small-title">
+        JUST FOR YOU
+      </div>
 
-        <h2>Konjam inga iru.</h2>
+      <div class="main-title">
+        Konjam inga iru.
+      </div>
 
-        <p>
-            Edhuvum explain panna thevai illa.<br>
-            Just stay here for a little while.
-        </p>
+      <div class="sub">
+        Edhuvum explain panna thevai illa.<br>
+        Just stay here for a little while.
+      </div>
 
     </div>
 
-
-
-    <!-- TABS -->
 
     <div class="tabs">
 
-        <button
-            id="todayTab"
-            class="tab active"
-            onclick="showToday()"
-        >
-            Innaiku
-        </button>
+      <button id="todayTab"
+              class="tab active"
+              onclick="showToday()">
+        Innaiku
+      </button>
 
-        <button
-            id="akashTab"
-            class="tab"
-            onclick="showAkash()"
-        >
-            Akash ❤️
-        </button>
+      <button id="akashTab"
+              class="tab"
+              onclick="showAkash()">
+        Akash ❤️
+      </button>
 
     </div>
 
 
+    <!-- TODAY -->
+    <div id="todaySection" class="section active">
 
-    <!-- INNAIKU -->
+      <div class="card">
 
-    <section id="todaySection">
-
-        <div class="message-card">
-
-            <div class="label">
-                A SMALL MESSAGE FOR YOU
-            </div>
-
-            <div id="messageText">
-                One second...
-            </div>
-
-            <button
-                id="nextButton"
-                class="next"
-                onclick="nextMessage()"
-            >
-                Another one ✨
-            </button>
-
+        <div class="card-label">
+          A SMALL MESSAGE FOR YOU
         </div>
 
-    </section>
+        <div id="messageBox" class="message">
+          Loading...
+        </div>
 
+        <button class="another" onclick="nextMessage()">
+          Another one ✨
+        </button>
+
+      </div>
+
+      <div class="quote">
+        Some words are not meant to fix anything.<br>
+        They are just meant to stay with you.
+      </div>
+
+    </div>
 
 
     <!-- AKASH -->
+    <div id="akashSection" class="section">
 
-    <section id="akashSection">
+      <div class="card">
 
-        <div class="message-card akash-card">
+        <div class="akash-head">
 
-            <div class="akash-label">
-                FROM AKASH
-            </div>
+          <div class="heart">
+            ❤️
+          </div>
 
-            <div class="akash-text">
-
-                Just remember one thing...<br><br>
-
-                Naan un kooda dhaan irukken.<br>
-                Eppovume.<br><br>
-
-                Bayapadatha. ❤️
-
-            </div>
+          <div class="akash-title">
+            FROM AKASH
+          </div>
 
         </div>
 
-    </section>
+        <div class="quote">
+          Naan unakku edhuvum force panna varala.<br>
+          Just... whenever you need a quiet place,<br>
+          inga vandhu konjam iru. ❤️
+        </div>
+
+      </div>
 
 
+      <!-- RECEIVED MESSAGES -->
+      <div class="card">
 
-    <div class="footer">
-        A small corner of the internet, made with care.
+        <div class="received-title">
+          MESSAGES FROM AKASH ❤️
+        </div>
+
+        <div id="messagesList">
+          <div class="empty">
+            Messages loading...
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- LOGIN -->
+      <div id="loginCard" class="card">
+
+        <div class="card-label">
+          PRIVATE CORNER
+        </div>
+
+        <div class="quote" style="padding:5px 0 12px;">
+          Akash-ku mattum. 🔐
+        </div>
+
+        <label class="label">
+          USERNAME
+        </label>
+
+        <input
+          id="username"
+          class="input"
+          type="text"
+          placeholder="Username"
+          autocomplete="username"
+        >
+
+        <label class="label">
+          PASSWORD
+        </label>
+
+        <input
+          id="password"
+          class="input"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password"
+        >
+
+        <button class="login-btn" onclick="login()">
+          LOGIN ❤️
+        </button>
+
+        <div id="loginStatus" class="status"></div>
+
+      </div>
+
+
+      <!-- SEND MESSAGE -->
+      <div id="sendCard" class="card hidden">
+
+        <div class="card-label">
+          AKASH → THANGOO
+        </div>
+
+        <div class="quote" style="padding:5px 0 10px;">
+          Enna sollanum nu thonudho... sollu.
+        </div>
+
+        <textarea
+          id="messageInput"
+          class="input"
+          maxlength="1000"
+          placeholder="Type your message here..."
+        ></textarea>
+
+        <button class="send-btn" onclick="sendMessage()">
+          SEND ❤️
+        </button>
+
+        <button class="logout-btn" onclick="logout()">
+          Logout
+        </button>
+
+        <div id="sendStatus" class="status"></div>
+
+      </div>
+
+
+      <div class="footer">
+        made with care · Akash
+      </div>
+
     </div>
 
+  </div>
 
-</main>
-
+</div>
 
 
 <script>
 
+/* =========================================
+   API
+========================================= */
+
+const API_URL =
+  "https://thangoo-api.jarvisatmark1.workers.dev";
+
+
+/* =========================================
+   100 DAILY MESSAGES
+========================================= */
+
 const messages = [
 
-"Some days don't need to be fixed. They just need to be lived slowly. Innaiku konjam slow-aa iru. ❤️",
+"Some days don't need to be fixed. They just need someone who stays. ❤️",
 
-"Unakku ippo ellame confusing-aa irundhaalum, every answer has to come today nu rule illa. Konjam time kudu. 🌙",
+"Today, konjam slow-ah irundhaalum parava illa. You don't have to rush.",
 
-"Nee strong-aa nadikka vendiya avasiyam illa. Unmaiya nee feel panradhu feel pannalaam. 🤍",
+"Nee tired-ah irundha, inniku strong-ah nadikka thevai illa.",
 
-"One peaceful morning can change the feeling of an entire week. Naalaiku better-aa irukkalam. 🌅",
+"Un mind-ku konjam silence venumna, inga konjam neram iru.",
 
-"Sometimes the heart needs silence more than advice. So innaiku advice illa. Just breathe. 🌸",
+"Everything doesn't have to make sense today.",
 
-"Nee tired-aa irundha rest eduthuko. Rest-na giving up illa. It's just another way of moving forward. ❤️",
+"Nee feel panradhu wrong illa. Feelings-ku permission thevai illa.",
 
-"Ayyappan unnai paathuttu irukkaru-nu ninaichuko. Vazhi puriyama irundhaalum, protection illa nu artham illa. Swami Saranam. 🙏",
+"One bad chapter doesn't decide the whole story.",
 
-"Swami Saranam. Unakku theriyama kooda oru vazhi open aagittu irukkalam. Konjam nambikkaiya vechuko. 🕉️",
+"Konjam breathe pannu. Indha moment mattum dhaan ippo important.",
 
-"Ayyappan kitta oru small prayer: 'Avaloda mind-ku konjam amaidhi kudunga.' Avlo dhaan. 🙏",
+"Nee thaniya carry panna vendiya things ellam illa.",
 
-"Sometimes Ayyappan doesn't remove the mountain. He gives us strength to cross it. Swami Saranam. ❤️",
+"Sometimes healing is just waking up and trying again.",
 
-"Krishna Arjunanukku battlefield-la pesina maadhiri, life confusing-aa irukkumbodhu first calm aaganum. Answer appuram varum. 🪷",
+"Un smile marandhuta kooda, adhu un kitta irukku.",
 
-"Past-ai thirumba poi change panna mudiyadhu. Aana next page blank-aa irukku. Adha nee ezhudhalaam. 🌸",
+"Today unakku answer venam. Konjam peace pothum.",
 
-"Ellathayum control panna try pannadha. Unakku mudinja part-ai sincere-aa sei. Rest-ai life-kitta konjam vittudu. ❤️",
+"Edhu nadandhaalum, nee un value-a lose pannala.",
 
-"Baahubali-ku strength irundhadhu sword-la mattum illa. Heart-la irundhadhu. Un strength-um un heart-la dhaan. 👑",
+"Past-ku door irukkum. Future-ku door irukkum. Ippo nee inga dhaan.",
 
-"Maaveeran mode: bayam irukkalam. Doubt irukkalam. Aana one small step edukkalaam. 🔥",
+"Konjam water kudichitu, phone-a side-la vechitu, breathe pannu.",
 
-"Sometimes the bravest thing is simply waking up and continuing. Adhuvum oru victory. ❤️",
+"Nee explain panna mudiyadha feelings-um valid dhaan.",
 
-"Breaking news: Innaiku overthinking department-ku half-day leave. 😂",
+"Some people leave memories. Some people leave lessons. Both can hurt.",
 
-"Brain at 2 AM: 'Let's remember something embarrassing from five years ago.' 😂",
+"Un heart-ku rest kudukka kooda permission irukku.",
 
-"Heart: 'I need peace.' Brain: 'Okay, let's create 47 imaginary conversations.' 😂",
+"Tomorrow pathi ippo decide panna thevai illa.",
 
-"Coffee kudichacha? Illana indha message-ku complaint department open pannalaam. 😂☕",
+"One peaceful minute is also progress.",
 
-"Unakku smile varala-na parava illa. Fake smile-ku attendance compulsory illa. 😌",
+"Nee weak illa. Nee just tired-a irukkalaam.",
 
-"Sometimes comedy itself is therapy. So official announcement: Innaiku unnecessary seriousness cancelled. 😂",
+"Konjam konjam-ah things become lighter.",
 
-"Nee overthink pannumbodhu, un brain-ku sollu: 'Meeting postponed. Please come tomorrow.' 😂",
+"Unakku edhuvum prove panna vendam.",
 
-"One bad chapter doesn't get to decide the ending of your story. 📖",
+"Whatever happened, today is still yours.",
 
-"Un story innum mudiyala. Ippo konjam difficult chapter dhaan. That's all. ❤️",
+"Sometimes the bravest thing is simply staying calm.",
 
-"Miracle-na always something huge nadakkaradhu illa. Sometimes miracle is simply finding peace again. ✨",
+"Nee happy-a irukka deserve panra.",
 
-"Oru naal unexpected-aa oru small thing unakku genuine smile kudukkum. Wait and see. 🌷",
+"Un life-la innum neraya pages irukku.",
 
-"Some things take time because the heart is not a machine. Let it heal naturally. 🤍",
+"One person leaving doesn't make your world empty.",
 
-"Today doesn't have to be productive. It can simply be peaceful. 🌙",
+"Un heart-ku lock pottu forever irukka vendam.",
 
-"Morning reminder: Innaiku yesterday illa. Fresh day. Fresh breath. Fresh chance. 🌅",
+"Pain can be real without being permanent.",
 
-"Good morning. Unakku innaiku konjam lighter-aa feel aaganum-nu oru small wish. ☀️",
+"Konjam sirikka mudinja sirichidu. Reason thevai illa.",
 
-"Night reminder: Innaiku nadandhadhellam innaiku oda limit. Tomorrow can wait till tomorrow. 🌙",
+"Today, just take care of yourself.",
 
-"Sleep peacefully. Everything doesn't need to be solved before closing your eyes. 🤍",
+"Nee unakku kind-ah irukkanum. Especially on difficult days.",
 
-"Sometimes tears are just the heart releasing what words couldn't say. 🌧️",
+"Everything will not be solved in one night.",
 
-"Azhanumna azhu. Silent-aa irukkanumna silent-aa iru. Un feelings-ku permission thevai illa. ❤️",
+"Un silence-um purinjikka koodiya people irukkanga.",
 
-"Nee yaarukkum prove panna vendiya person illa. Un life un pace-la po. 🌸",
+"Sometimes a quiet evening is enough.",
 
-"Don't rush yourself just because someone else seems to be moving fast. 🌿",
+"Nee past-ai carry pannitu future-ku odanum nu rule illa.",
 
-"Slow progress is still progress. Even one peaceful day counts. ❤️",
+"Slow progress is still progress.",
 
-"Some people become memories. Some become lessons. Time decides what remains. 🌙",
+"Your heart deserves peaceful mornings.",
 
-"Maybe life is not taking something away. Maybe it's quietly making space for something you haven't seen yet. ✨",
+"Unakku bad day vandha, adhu bad life nu meaning illa.",
 
-"Unakku ippo future theriyama irukkalam. That's okay. Whole road theriyanum nu illa. Next step therinja podhum. 🛤️",
+"Konjam rest eduthaa dreams disappear aagathu.",
 
-"Ayyappan path-la every step matters. Nee slow-aa ponaalum, step dhaan. Swami Saranam. 🙏",
+"Nobody has to understand everything you feel.",
 
-"Swami Saranam. Innaiku un heart-ku konjam strength, mind-ku konjam peace. ❤️",
+"Today might be heavy. Tomorrow may feel different.",
 
-"Sometimes prayer doesn't change the situation immediately. It changes the way we carry it. 🕉️",
+"Nee smile pannina world perfect aagathu. But konjam lighter aagalam.",
 
-"Krishna-style reminder: Don't carry tomorrow's worry into today's heart. 🌼",
+"Don't punish yourself for things you couldn't control.",
 
-"Arjuna-ku kooda doubt vandhadhu. Doubt vandha nee weak nu artham illa. It means you're human. 🪷",
+"Unakku second chances mattum illa. New beginnings-um irukku.",
 
-"Unakku clarity varra varaikkum, rush panna vendam. Peace first. ❤️",
+"Sometimes closure doesn't come from another person.",
 
-"Baahubali moment: Kingdom save panna sword mattum podhathu. Patience-um venum. 👑",
+"Your peace is also something worth protecting.",
 
-"Maaveeran reminder: Courage is not the absence of fear. It's taking one more step anyway. 🔥",
+"Nee deserve panra kindness-a first unakku nee kuduthuko.",
 
-"Sometimes the strongest person in the room is the one who quietly keeps going. 🤍",
+"Nothing about you needs to be perfect today.",
 
-"One day you'll look back and say, 'Naan indha phase-aiyum cross pannitten.' 🌷",
+"Konjam window pakkam poi fresh air breathe pannu.",
 
-"Your heart has survived every difficult day you've had so far. That's something worth remembering. ❤️",
+"Un heart tired-ah irundha, today expectations-a konjam lower panniko.",
 
-"Nothing needs to be perfect today. Perfect-na romba boring anyway. 😂",
+"One small good thing is enough for today.",
 
-"Life update: Loading... Please don't close the app. 😂",
+"Nee lost-ah feel panninaalum, life stop aagala.",
 
-"Brain storage full. Please delete unnecessary overthinking files. 😂",
+"Some answers arrive only after we stop chasing them.",
 
-"Heart battery low. Connecting to peace... 🔋😂",
+"Unakku peace venum na, adha choose panna right irukku.",
 
-"Official permission: Today you may do absolutely nothing for a little while. 😌",
+"Nobody gets to decide your entire future from your past.",
 
-"Sometimes sitting quietly with a cup of tea is a complete plan. ☕",
+"Today, comparison-ku holiday kuduthudu.",
 
-"Unakku pesanum-na pesu. Pesama irukkanum-na adhuvum okay. 🤍",
+"Un story innum mudiyala.",
 
-"Naan un kooda dhaan irukken. Eppovume. Bayapadatha. ❤️",
+"Sometimes healing looks completely ordinary.",
 
-"Even if today feels heavy, you don't have to carry the entire week at once. Just today. 🌙",
+"Wake up. Drink water. Breathe. Continue.",
 
-"One breath. One moment. One step. That's enough for now. 🌸",
+"Nee loved-a feel panna deserve panra.",
 
-"Your future self may one day thank you for not giving up on today's version of you. ❤️",
+"Un tears-ku shame thevai illa.",
 
-"Some nights feel endless. Morning still comes. Always. 🌅",
+"Strong people also need someone beside them.",
 
-"Rain doesn't ask permission before falling. Hearts don't ask permission before hurting. Both eventually pass. 🌧️",
+"Konjam music podu. Mind-a breathe panna vidu.",
 
-"Nee happy-aa irukka try panna vendam. First peaceful-aa irukka try pannalaam. 🌿",
+"Life-la certain people temporary-a irukkalam. Lessons stay.",
 
-"Unakku thevaiyana answer sometimes comes after you stop forcing yourself to find it. ✨",
+"Un happiness-ku permission yaar kittayum kekka vendam.",
 
-"Sometimes distance gives the heart the space it couldn't find while everything was happening. 🌙",
+"Today, choose one small thing that makes you comfortable.",
 
-"Let the past remain a memory without making it your permanent home. 🏡",
+"Everything you lost is not everything you are.",
 
-"Un heart-ku door close panna sollala. Just konjam window open panni fresh air varattum. 🌸",
+"Sometimes the heart needs time, not advice.",
 
-"Hope doesn't always feel loud. Sometimes it's just a tiny thought saying, 'Maybe tomorrow.' ❤️",
+"Nee edhavadhu miss panra nu feel panninaalum, un future empty illa.",
 
-"Maybe tomorrow won't be perfect. But maybe it'll be a little lighter. That's enough. 🌅",
+"Don't let one painful memory become your entire identity.",
 
-"Ayyappan unnai kai vida maattar-nu nambikkaiya vechuko. Swami Saranam. 🙏",
+"Your next chapter doesn't have to resemble the previous one.",
 
-"Swami Saranam. Bayam vandhaalum, prayer oda one step continue pannalaam. 🕉️",
+"Konjam light-a eduthuko. Every thought deserves an answer illa.",
 
-"Krishna-inspired thought: What belongs in your hands, do with love. What doesn't, don't let it steal your peace. 🪷",
+"Unakku peace kudukkura things-a hold panniko.",
 
-"Life sometimes takes a strange route before reaching a beautiful place. Don't judge the whole journey from one road. 🛤️",
+"Some nights are just meant for resting.",
 
-"Baahubali-style reminder: Un story-la hero moment mattum illa. Quiet moments-um important. 👑",
+"Nee tomorrow-ku innum neraya possibilities vachirukka.",
 
-"Maaveeran-style reminder: Oru small courage today can become a big change tomorrow. 🔥",
+"Your heart can learn to trust happiness again.",
 
-"Comedy emergency: Please stop replaying imaginary arguments. The other person isn't even present. 😂",
+"Today doesn't need a grand achievement.",
 
-"Your brain deserves office hours. 24/7 customer service cancelled. 😂",
+"Just being here is enough for this moment.",
 
-"Today’s assignment: Eat something, drink water, breathe, and don't fight with your own mind. 😂❤️",
+"Un mind overthink pannina, reality-ku thirumbi vaa.",
 
-"Some healing happens so quietly that you don't notice it until one day something doesn't hurt anymore. 🌷",
+"One breath. One minute. One step.",
 
-"One day the same memory may exist without the same pain. Time can change the weight of things. 🌙",
+"Nothing is wrong with wanting a peaceful life.",
 
-"Don't measure healing by how often you remember. Measure it by how gently you return to yourself. ❤️",
+"Unakku pidicha small things-a marakkadhe.",
 
-"Unakku innaiku nothing special nadakkala-na kooda okay. Ordinary days are part of life too. 🌿",
+"Sometimes happiness returns quietly.",
 
-"Sometimes peace looks boring. That's okay. Boring can be beautiful. 🤍",
+"Nee deserve panra life-a slowly build pannalaam.",
 
-"Keep a little space in your heart for unexpected good things. ✨",
+"Bad memories can become quieter with time.",
 
-"Maybe life has a surprise waiting that you cannot see from where you are standing now. 🌸",
+"Don't rush your healing just because the world is moving.",
 
-"Until then, one day at a time. No race. No pressure. ❤️",
+"Your heart is allowed to change its mind.",
 
-"Good night. Un mind-ku innaiku konjam silence, un heart-ku konjam warmth. 🌙",
+"Konjam hope save panniko. Full battery venam.",
 
-"Tomorrow is not asking you to become a different person. Just wake up and be you again. ❤️",
+"One day, indha phase-ai thirumbi paatha, nee evlo far vandhirukka nu puriyum.",
 
-"Whatever happened, you are still here. That's where the next chapter begins. 📖",
+"Until then, one day at a time.",
+
+"Nee un story-la main character dhaan. Aana ellam ippove solve panna vendam.",
+
+"Peace first. Answers later.",
+
+"Today, konjam unakku nee friend-ah iru.",
+
+"Whatever happens next, don't forget to take care of the person living inside you.",
 
 "Last reminder for today: Naan un kooda dhaan irukken. Eppovume. Bayapadatha. ❤️"
 
 ];
 
 
-let availableMessages = [];
+/* =========================================
+   MESSAGE RANDOMIZER
+========================================= */
 
+let messagePool = [];
 
 function resetMessagePool(){
 
-    availableMessages =
-        messages.map(function(_, index){
-            return index;
-        });
+  messagePool =
+    messages.map((_, index) => index);
+
+  shuffle(messagePool);
+
+}
+
+
+function shuffle(array){
+
+  for(let i = array.length - 1; i > 0; i--){
+
+    const j =
+      Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] =
+      [array[j], array[i]];
+
+  }
+
+  return array;
 
 }
 
 
 function nextMessage(){
 
-    if(availableMessages.length === 0){
-        resetMessagePool();
-    }
+  if(messagePool.length === 0){
 
-    const position =
-        Math.floor(
-            Math.random() *
-            availableMessages.length
-        );
+    resetMessagePool();
 
-    const index =
-        availableMessages.splice(position,1)[0];
+  }
 
-    const box =
-        document.getElementById("messageText");
+  const index =
+    messagePool.pop();
 
-    box.innerText =
-        messages[index];
+  document.getElementById("messageBox").textContent =
+    messages[index];
 
 }
 
+
+/* =========================================
+   OPEN WEBSITE
+========================================= */
 
 function openSite(){
 
-    document.getElementById("welcome").style.display =
-        "none";
+  document
+    .getElementById("welcomeScreen")
+    .classList.remove("active");
 
-    document.getElementById("home").style.display =
-        "block";
+  document
+    .getElementById("homeScreen")
+    .classList.add("active");
 
-    showToday();
+  nextMessage();
+
+  loadMessages();
 
 }
 
 
+/* =========================================
+   TABS
+========================================= */
+
 function showToday(){
 
-    document.getElementById("todaySection").style.display =
-        "block";
+  document
+    .getElementById("todaySection")
+    .classList.add("active");
 
-    document.getElementById("akashSection").style.display =
-        "none";
+  document
+    .getElementById("akashSection")
+    .classList.remove("active");
 
-    document.getElementById("todayTab").classList.add("active");
+  document
+    .getElementById("todayTab")
+    .classList.add("active");
 
-    document.getElementById("akashTab").classList.remove("active");
-
-    nextMessage();
+  document
+    .getElementById("akashTab")
+    .classList.remove("active");
 
 }
 
 
 function showAkash(){
 
-    document.getElementById("todaySection").style.display =
-        "none";
+  document
+    .getElementById("todaySection")
+    .classList.remove("active");
 
-    document.getElementById("akashSection").style.display =
-        "block";
+  document
+    .getElementById("akashSection")
+    .classList.add("active");
 
-    document.getElementById("todayTab").classList.remove("active");
+  document
+    .getElementById("todayTab")
+    .classList.remove("active");
 
-    document.getElementById("akashTab").classList.add("active");
+  document
+    .getElementById("akashTab")
+    .classList.add("active");
+
+  loadMessages();
 
 }
 
 
+/* =========================================
+   LOGIN
+========================================= */
+
+async function login(){
+
+  const username =
+    document.getElementById("username").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const status =
+    document.getElementById("loginStatus");
+
+  if(!username || !password){
+
+    status.textContent =
+      "Username and password enter pannu.";
+
+    return;
+
+  }
+
+  status.textContent =
+    "Logging in...";
+
+
+  try{
+
+    const response =
+      await fetch(API_URL + "/login", {
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+          username,
+          password
+        })
+
+      });
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok || !data.success){
+
+      status.textContent =
+        "Login failed.";
+
+      return;
+
+    }
+
+
+    localStorage.setItem(
+      "thangoo_akash_token",
+      data.token
+    );
+
+
+    document
+      .getElementById("loginCard")
+      .classList.add("hidden");
+
+    document
+      .getElementById("sendCard")
+      .classList.remove("hidden");
+
+
+    status.textContent =
+      "";
+
+
+  }catch(error){
+
+    status.textContent =
+      "Server connect aagala. Konjam later try pannu.";
+
+  }
+
+}
+
+
+/* =========================================
+   CHECK EXISTING LOGIN
+========================================= */
+
+function checkLogin(){
+
+  const token =
+    localStorage.getItem("thangoo_akash_token");
+
+  if(token){
+
+    document
+      .getElementById("loginCard")
+      .classList.add("hidden");
+
+    document
+      .getElementById("sendCard")
+      .classList.remove("hidden");
+
+  }
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logout(){
+
+  localStorage.removeItem(
+    "thangoo_akash_token"
+  );
+
+  document
+    .getElementById("sendCard")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginCard")
+    .classList.remove("hidden");
+
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+  document.getElementById("messageInput").value = "";
+
+}
+
+
+/* =========================================
+   SEND MESSAGE
+========================================= */
+
+async function sendMessage(){
+
+  const input =
+    document.getElementById("messageInput");
+
+  const status =
+    document.getElementById("sendStatus");
+
+  const message =
+    input.value.trim();
+
+  const token =
+    localStorage.getItem("thangoo_akash_token");
+
+
+  if(!token){
+
+    status.textContent =
+      "First login pannu.";
+
+    return;
+
+  }
+
+
+  if(!message){
+
+    status.textContent =
+      "Message empty-ah irukku.";
+
+    return;
+
+  }
+
+
+  status.textContent =
+    "Sending...";
+
+
+  try{
+
+    const response =
+      await fetch(API_URL + "/send", {
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json",
+          "Authorization":"Bearer " + token
+        },
+
+        body:JSON.stringify({
+          message
+        })
+
+      });
+
+
+    const data =
+      await response.json();
+
+
+    if(response.status === 401){
+
+      localStorage.removeItem(
+        "thangoo_akash_token"
+      );
+
+      document
+        .getElementById("sendCard")
+        .classList.add("hidden");
+
+      document
+        .getElementById("loginCard")
+        .classList.remove("hidden");
+
+      status.textContent =
+        "Login expired. Again login pannu.";
+
+      return;
+
+    }
+
+
+    if(!response.ok || !data.success){
+
+      status.textContent =
+        data.error || "Message send aagala.";
+
+      return;
+
+    }
+
+
+    input.value = "";
+
+    status.textContent =
+      "Sent ❤️";
+
+
+    await loadMessages();
+
+
+    setTimeout(() => {
+
+      status.textContent = "";
+
+    },3000);
+
+
+  }catch(error){
+
+    status.textContent =
+      "Server connect aagala.";
+
+  }
+
+}
+
+
+/* =========================================
+   SAFE HTML
+========================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================
+   FORMAT TIME
+========================================= */
+
+function formatTime(value){
+
+  const date =
+    new Date(value);
+
+  if(Number.isNaN(date.getTime())){
+
+    return value;
+
+  }
+
+
+  return date.toLocaleString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric",
+      hour:"2-digit",
+      minute:"2-digit",
+      hour12:true
+    }
+  );
+
+}
+
+
+/* =========================================
+   LOAD MESSAGES
+========================================= */
+
+async function loadMessages(){
+
+  const list =
+    document.getElementById("messagesList");
+
+
+  try{
+
+    const response =
+      await fetch(API_URL + "/messages");
+
+
+    if(!response.ok){
+
+      throw new Error("Failed");
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if(!Array.isArray(data) || data.length === 0){
+
+      list.innerHTML = `
+        <div class="empty">
+          Inga innum message illa.<br>
+          Maybe first message innum varala ❤️
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    list.innerHTML =
+      data.map(item => `
+
+        <div class="received">
+
+          <div class="received-from">
+            AKASH SAYS ❤️
+          </div>
+
+          <div class="received-message">
+            ${escapeHTML(item.message)}
+          </div>
+
+          <div class="received-time">
+            Received · ${escapeHTML(
+              formatTime(item.created_at)
+            )}
+          </div>
+
+        </div>
+
+      `).join("");
+
+
+  }catch(error){
+
+    list.innerHTML = `
+      <div class="empty">
+        Messages ippo load aagala.<br>
+        Konjam later try pannalaam. ❤️
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
 resetMessagePool();
+
+checkLogin();
 
 </script>
 
