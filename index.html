@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THANGOO</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    color:#f7f0dc;
+    font-family:Georgia,"Times New Roman",serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 5%,
+            #1b3b63 0%,
+            #0b1b34 38%,
+            #030712 82%
+        );
+
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(232,202,130,.65) 1px,
+            transparent 1.5px
+        );
+
+    background-size:85px 85px;
+    opacity:.12;
+
+    animation:stars 20s linear infinite;
+}
+
+@keyframes stars{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(85px);
+    }
+}
+
+.light{
+    position:fixed;
+    bottom:-20px;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#e8ca82;
+
+    box-shadow:
+        0 0 15px #e8ca82;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    animation:floatLight 11s linear infinite;
+}
+
+.light:nth-child(1){
+    left:10%;
+    animation-delay:1s;
+}
+
+.light:nth-child(2){
+    left:29%;
+    animation-delay:4s;
+}
+
+.light:nth-child(3){
+    left:51%;
+    animation-delay:2s;
+}
+
+.light:nth-child(4){
+    left:73%;
+    animation-delay:6s;
+}
+
+.light:nth-child(5){
+    left:89%;
+    animation-delay:3s;
+}
+
+@keyframes floatLight{
+
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    80%{
+        opacity:.3;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1);
+        opacity:0;
+    }
+}
+
+
+/* ================= WELCOME ================= */
+
+#welcome{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:24px;
+}
+
+.welcome-card{
+    width:min(390px,100%);
+
+    padding:46px 27px;
+
+    text-align:center;
+
+    border:1px solid rgba(232,202,130,.45);
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,44,77,.90),
+            rgba(4,13,28,.93)
+        );
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 0 60px rgba(232,202,130,.10),
+        inset 0 0 30px rgba(255,255,255,.025);
+
+    animation:welcomeIn 1.2s ease;
+}
+
+@keyframes welcomeIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(35px)
+            scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+.symbol{
+    font-size:50px;
+
+    animation:breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+.welcome-card h1{
+
+    margin-top:18px;
+
+    color:#e8ca82;
+
+    font-size:30px;
+
+    letter-spacing:5px;
+}
+
+.gold-line{
+
+    width:75px;
+    height:1px;
+
+    margin:19px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #e8ca82,
+            transparent
+        );
+}
+
+.welcome-text{
+
+    color:#d4d9e3;
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+.signature{
+
+    margin-top:24px;
+
+    color:#d8bd73;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+.open-btn{
+
+    margin-top:30px;
+
+    padding:14px 36px;
+
+    border:0;
+
+    border-radius:50px;
+
+    font-family:inherit;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    color:#07101c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f2d992,
+            #b6873c
+        );
+
+    box-shadow:
+        0 0 25px rgba(232,202,130,.20);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.open-btn:active{
+    transform:scale(.93);
+}
+
+
+/* ================= HOME ================= */
+
+#home{
+
+    display:none;
+
+    min-height:100vh;
+
+    padding:
+        35px
+        18px
+        60px;
+
+    text-align:center;
+
+    animation:homeIn .8s ease;
+}
+
+@keyframes homeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.home-symbol{
+
+    font-size:38px;
+
+    animation:breathe 4s ease-in-out infinite;
+}
+
+.home-title{
+
+    margin-top:12px;
+
+    color:#e8ca82;
+
+    font-size:27px;
+}
+
+.home-subtitle{
+
+    margin-top:9px;
+
+    color:#aeb8ca;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* ================= TABS ================= */
+
+.tabs{
+
+    width:min(430px,100%);
+
+    margin:30px auto 0;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+}
+
+.tab{
+
+    min-height:135px;
+
+    padding:20px 10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:1px solid rgba(232,202,130,.28);
+
+    border-radius:24px;
+
+    background:
+        rgba(8,25,48,.76);
+
+    backdrop-filter:blur(15px);
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.tab:active{
+    transform:scale(.94);
+}
+
+.tab.active{
+
+    border-color:
+        rgba(232,202,130,.70);
+
+    box-shadow:
+        0 0 28px
+        rgba(232,202,130,.08);
+}
+
+.tab-icon{
+    font-size:31px;
+}
+
+.tab-title{
+
+    margin-top:11px;
+
+    color:#ebd18a;
+
+    font-size:17px;
+}
+
+.tab-small{
+
+    margin-top:6px;
+
+    color:#8f9bae;
+
+    font-size:11px;
+}
+
+
+/* ================= DAILY ================= */
+
+.daily{
+
+    width:min(430px,100%);
+
+    margin:20px auto 0;
+
+    display:none;
+}
+
+.daily.show{
+
+    display:block;
+
+    animation:appear .5s ease;
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.section-label{
+
+    margin:22px 0 10px;
+
+    text-align:left;
+
+    color:#e6c878;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+}
+
+
+/* ================= MESSAGE CARD ================= */
+
+.daily-card{
+
+    padding:25px 21px;
+
+    border-radius:25px;
+
+    border:
+        1px solid
+        rgba(232,202,130,.23);
+
+    background:
+        rgba(4,16,33,.82);
+
+    box-shadow:
+        inset 0 0 25px
+        rgba(255,255,255,.015);
+
+    animation:cardChange .45s ease;
+}
+
+@keyframes cardChange{
+
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.card-icon{
+
+    font-size:31px;
+}
+
+.card-title{
+
+    margin-top:10px;
+
+    color:#ebd18a;
+
+    font-size:18px;
+}
+
+.card-text{
+
+    margin-top:17px;
+
+    color:#e0e4ec;
+
+    font-size:15px;
+
+    line-height:1.95;
+}
+
+.card-note{
+
+    margin-top:16px;
+
+    color:#7e8a9d;
+
+    font-size:11px;
+}
+
+
+/* ================= NEXT ================= */
+
+.next-btn{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:
+        1px solid
+        rgba(232,202,130,.35);
+
+    border-radius:18px;
+
+    color:#e8ca82;
+
+    background:
+        rgba(15,35,62,.82);
+
+    font-family:inherit;
+
+    font-size:14px;
+
+    cursor:pointer;
+}
+
+.next-btn:active{
+    transform:scale(.97);
+}
+
+
+/* ================= AKASH ================= */
+
+.akash{
+
+    width:min(430px,100%);
+
+    margin:20px auto 0;
+
+    display:none;
+}
+
+.akash.show{
+
+    display:block;
+
+    animation:appear .5s ease;
+}
+
+.akash-card{
+
+    padding:30px 22px;
+
+    border-radius:25px;
+
+    border:
+        1px solid
+        rgba(232,202,130,.23);
+
+    background:
+        rgba(4,16,33,.82);
+}
+
+.akash-title{
+
+    color:#ebd18a;
+
+    font-size:18px;
+}
+
+.akash-text{
+
+    margin-top:20px;
+
+    color:#e0e4ec;
+
+    font-size:15px;
+
+    line-height:1.95;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:360px){
+
+    .welcome-card{
+        padding:38px 20px;
+    }
+
+    .welcome-card h1{
+        font-size:27px;
+    }
+
+    .tab{
+        min-height:125px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- Floating lights -->
+
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
+<div class="light"></div>
+
+
+<!-- ================================================= -->
+<!-- WELCOME -->
+<!-- ================================================= -->
+
+<section id="welcome">
+
+    <div class="welcome-card">
+
+        <div class="symbol">
+            🪷
+        </div>
+
+        <h1>
+            THANGOO
+        </h1>
+
+        <div class="gold-line"></div>
+
+        <div class="welcome-text">
+
+            Konjam inga iru.<br>
+
+            Edhuvum explain panna thevai illa.<br>
+
+            Just open. ❤️
+
+        </div>
+
+        <div class="signature">
+
+            Made by<br>
+
+            <b>Akash</b>
+
+        </div>
+
+        <button
+            class="open-btn"
+            onclick="openHome()"
+        >
+            Open ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- HOME -->
+<!-- ================================================= -->
+
+<section id="home">
+
+    <div class="home-symbol">
+        🌙
+    </div>
+
+    <div class="home-title">
+        Inga dhaan irukken.
+    </div>
+
+    <div class="home-subtitle">
+
+        Unakku thevaiyana nerathula<br>
+
+        inga oru message irukkum.
+
+    </div>
+
+
+    <!-- TWO TABS -->
+
+    <div class="tabs">
+
+        <div
+            id="todayTab"
+            class="tab"
+            onclick="showToday()"
+        >
+
+            <div class="tab-icon">
+                🌸
+            </div>
+
+            <div class="tab-title">
+                Innaiku
+            </div>
+
+            <div class="tab-small">
+                Konjam time inga
+            </div>
+
+        </div>
+
+
+        <div
+            id="akashTab"
+            class="tab"
+            onclick="showAkash()"
+        >
+
+            <div class="tab-icon">
+                ❤️
+            </div>
+
+            <div class="tab-title">
+                Akash
+            </div>
+
+            <div class="tab-small">
+                From me
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DAILY -->
+
+    <div
+        id="daily"
+        class="daily"
+    >
+
+        <div class="section-label">
+            FOR THIS MOMENT
+        </div>
+
+        <div
+            id="dailyCard"
+            class="daily-card"
+        >
+        </div>
+
+        <button
+            class="next-btn"
+            onclick="nextMessage()"
+        >
+            Next message ✨
+        </button>
+
+    </div>
+
+
+    <!-- AKASH -->
+
+    <div
+        id="akash"
+        class="akash"
+    >
+
+        <div class="akash-card">
+
+            <div class="akash-title">
+                AKASH ❤️
+            </div>
+
+            <div class="akash-text">
+
+                Just remember one thing...<br><br>
+
+                <b>
+                    Naan un kooda dhaan irukken.
+                    Eppovume.
+                    Bayapadatha.
+                </b>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* ================================================= */
+/* OPEN HOME */
+/* ================================================= */
+
+function openHome(){
+
+    const welcome =
+        document.getElementById("welcome");
+
+    const home =
+        document.getElementById("home");
+
+    welcome.style.opacity="0";
+
+    welcome.style.transform="scale(.96)";
+
+    welcome.style.transition=".5s ease";
+
+    setTimeout(function(){
+
+        welcome.style.display="none";
+
+        home.style.display="block";
+
+        window.scrollTo(0,0);
+
+    },500);
+}
+
+
+/* ================================================= */
+/* 100 UNIQUE MESSAGES */
+/* ================================================= */
+
+const messages = [
+
+/* 001 */
+{
+icon:"🌅",
+title:"Morning",
+text:`Good morning... ❤️<br><br>
+Innaiku enna nadandhaalum,
+first konjam peaceful-aa iru.
+Ellathayum ore naal-la solve panna thevai illa.`
+},
+
+/* 002 */
+{
+icon:"🌸",
+title:"Konjam slow",
+text:`Innaiku konjam slow-aa ponaalum parava illa.<br><br>
+Life race illa.
+Unakku comfortable-aa irukkura speed-la po.`
+},
+
+/* 003 */
+{
+icon:"❤️",
+title:"Just remember",
+text:`Nee ellathayum thaniya handle panna vendiya aal illa.<br><br>
+Kashtama irundha kashtama irukku-nu accept panniko.
+Adhu weakness illa.`
+},
+
+/* 004 */
+{
+icon:"💪",
+title:"One step",
+text:`Innaiku full mountain climb panna vendam.<br><br>
+Oru small step podu.
+Naalaikku innoru step podalam.`
+},
+
+/* 005 */
+{
+icon:"🌙",
+title:"Peace",
+text:`Un mind-ku konjam rest kudu.<br><br>
+Every thought-ku answer kandupidikka vendiya avasiyam illa.`
+},
+
+/* 006 */
+{
+icon:"😂",
+title:"Important announcement",
+text:`📢 Innaiku overthinking-ku half-day leave.<br><br>
+Adhu leave approve pannala-na...
+phone-a konjam side-la vechidu. 😂`
+},
+
+/* 007 */
+{
+icon:"☕",
+title:"Small things",
+text:`Oru nalla coffee.
+Konjam fresh air.
+Oru peaceful song.<br><br>
+Sometimes idhellam podhum. ❤️`
+},
+
+/* 008 */
+{
+icon:"✨",
+title:"Today",
+text:`Innaiku unakku perfect day venam.<br><br>
+Just konjam better day irundha podhum.`
+},
+
+/* 009 */
+{
+icon:"🫂",
+title:"No pressure",
+text:`Strong-aa irukkanum-nu force pannadha.<br><br>
+Sometimes just survive the day.
+Adhuvum oru victory.`
+},
+
+/* 010 */
+{
+icon:"🌷",
+title:"You",
+text:`Unakku ippo enna feel aagudho,
+adha deny panna vendam.<br><br>
+Time eduthukkalam.`
+},
+
+/* 011 */
+{
+icon:"⚔️",
+title:"Baahubali",
+text:`Baahubali-ku kooda ellame easy-aa kidaikkala.<br><br>
+Strength-na problem illa-nu artham illa.
+Problem irundhaalum nikkaradhu.`
+},
+
+/* 012 */
+{
+icon:"⚔️",
+title:"Baahubali",
+text:`Oru chapter kashtama irukku-nu
+full story bad-aa mudiyadhu.<br><br>
+Un story innum romba perusa irukku. ❤️`
+},
+
+/* 013 */
+{
+icon:"⚔️",
+title:"Baahubali",
+text:`Sila por namma veliya fight panna vendiyadhu illa.<br><br>
+Mind-kulla nadakkura por-ai
+calm-aa handle pannradhuvum bravery dhaan.`
+},
+
+/* 014 */
+{
+icon:"🏹",
+title:"Baahubali",
+text:`Crown irundhaalum,
+crown illaattiyum,
+oru manushanoda value koraiyaadhu.<br><br>
+Un value-yum appadi dhaan.`
+},
+
+/* 015 */
+{
+icon:"🔥",
+title:"Baahubali",
+text:`Nee ippo feel panra pain,
+un entire identity illa.<br><br>
+Idhu oru phase.
+Nee adhukku mela perusu.`
+},
+
+/* 016 */
+{
+icon:"⚔️",
+title:"Maaveeran",
+text:`Innaiku nee un own life-la
+konjam brave-aa irundha podhum.<br><br>
+Big victory thevai illa.`
+},
+
+/* 017 */
+{
+icon:"🔥",
+title:"Maaveeran",
+text:`Bayam irundhaalum move aagalam.<br><br>
+Courage-na bayame illa-nu illa.
+Bayam irundhum next step edukkaradhu.`
+},
+
+/* 018 */
+{
+icon:"🏹",
+title:"Maaveeran",
+text:`Sila neram silence kooda
+oru strong answer dhaan.<br><br>
+Ellathukkum reply kudukka vendam.`
+},
+
+/* 019 */
+{
+icon:"🔥",
+title:"Maaveeran",
+text:`Un life-la hero moment-na
+always crowd clap panna vendiya scene illa.<br><br>
+Nee unakkaga nikkira moment-um podhum.`
+},
+
+/* 020 */
+{
+icon:"⚔️",
+title:"Maaveeran",
+text:`Oru bad day vandhuduchu-nu
+whole life bad-nu decide pannadhe.<br><br>
+Tomorrow still has space.`
+},
+
+/* 021 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un manasula irukkura sumaiyai
+nee vaarthaiya solla mudiyama
+irundhaalum,
+naan adhai unarven.<br><br>
+Nee thaniya sumakka vendam.”`
+},
+
+/* 022 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku munnadi irukkura vazhi
+full-aa theriyama irukkalam.<br><br>
+Oru adi podu.
+Vazhi konjam konjama theriyum.”`
+},
+
+/* 023 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Bayam vandhaalum
+unnai nee thavaraaga ninaikka vendam.<br><br>
+Bayathukku pinnadiyum
+oru dhairiyam irukkum.”`
+},
+
+/* 024 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un kannil kanneer vandhaalum
+nee tholvi adaindhavan illa.<br><br>
+Manasu valikkiradhu endraal
+nee unarvulla manushan.”`
+},
+
+/* 025 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku ippo thevai
+ella answers-um illa.<br><br>
+Konjam amaidhi.
+Konjam nambikkai.
+Adhu podhum.”`
+},
+
+/* 026 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unnai vittup pona oruvarin
+nizhalai paarthu
+nee un vazhiyai niruthadhe.<br><br>
+Un vazhi innum thodargiradhu.”`
+},
+
+/* 027 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Indru unakku sirikka mudiyavillai endraal
+parava illai.<br><br>
+Naalai sirippadharkana
+idathai un manasukkul vida.”`
+},
+
+/* 028 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un kai tired-aa irundhaal
+konjam en pakkam vechuko.<br><br>
+Nee ellathayum thaniya
+carry panna vendiya avasiyam illa.”`
+},
+
+/* 029 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku nadandhadhu
+unakku oru lesson-a irukkalam.<br><br>
+Aana adhu un future-ai
+ezhutha vendiya kattayam illa.”`
+},
+
+/* 030 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un manasu amaidhiyaga irukkum
+oru naal varum.<br><br>
+Adhuvaraikkum
+oru naal-a oru naal-aa nad.”`
+},
+
+/* 031 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unnai purinjukollaadha
+oruvar irundhadhaal,
+nee purindhukollappadaadha
+manushan aagividamaattaai.”`
+},
+
+/* 032 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku thirumbi varum
+amaidhiyai nambikkaiyoda
+kaathiru.<br><br>
+Avasaram vendam.”`
+},
+
+/* 033 */
+{
+icon:"🏹",
+title:"A gentle reminder",
+text:`Arjuna battlefield-la
+confusion-la nindrappo,
+first clarity thevai pattadhu.<br><br>
+Unakkum ippo answer vida
+konjam clarity thevai irukkalam.`
+},
+
+/* 034 */
+{
+icon:"🌿",
+title:"Peace",
+text:`Ellame immediate-aa purinjukanum-nu illa.<br><br>
+Sila answers time kudutha dhaan
+clear-aa varum.`
+},
+
+/* 035 */
+{
+icon:"✨",
+title:"A little hope",
+text:`Innaiku unakku hope
+romba small-aa therinjhaalum,
+adha throw pannadhe.<br><br>
+Small light-um darkness-la light dhaan.`
+},
+
+/* 036 */
+{
+icon:"🌻",
+title:"Tomorrow",
+text:`Innaiku mudiyala-na
+naalai try pannalam.<br><br>
+Naalaiyum mudiyala-na
+adhukku next day irukku.`
+},
+
+/* 037 */
+{
+icon:"💫",
+title:"Miracle",
+text:`Miracle-na always
+sky-la star fall aaganum-nu illa.<br><br>
+Sometimes one peaceful morning
+itself feels like a miracle.`
+},
+
+/* 038 */
+{
+icon:"✨",
+title:"Maybe",
+text:`Maybe innaiku nadakkadha
+oru nalla vishayam,
+right time-ku wait pannitu irukkalam.`
+},
+
+/* 039 */
+{
+icon:"🌈",
+title:"After rain",
+text:`Mazhai vandha sky permanent-aa
+dark aagiduma?<br><br>
+Konjam wait pannu.
+Light thirumbi varum.`
+},
+
+/* 040 */
+{
+icon:"🌱",
+title:"Growing",
+text:`Nee ippo un life-ai
+figure out pannitu irukkalaam.<br><br>
+Adhuvum growth dhaan.`
+},
+
+/* 041 */
+{
+icon:"😂",
+title:"Small comedy",
+text:`Mind:<br>
+“Let's overthink everything.”<br><br>
+Nee:<br>
+“Sorry, meeting cancelled.” 😂`
+},
+
+/* 042 */
+{
+icon:"😂",
+title:"Official order",
+text:`Official order 📜<br><br>
+Innaiku unnecessary sadness-ku
+permission illa.<br><br>
+Konjam smile compulsory. 😌`
+},
+
+/* 043 */
+{
+icon:"😂",
+title:"Brain update",
+text:`Brain-ku software update
+available nu notification vandhirukku. 😂<br><br>
+Restart panna vendam.
+Just konjam rest podhum.`
+},
+
+/* 044 */
+{
+icon:"😂",
+title:"Emergency",
+text:`Emergency situation:<br><br>
+Nee romba serious-aa irukka. 😭😂<br><br>
+Please smile immediately.`
+},
+
+/* 045 */
+{
+icon:"😂",
+title:"One request",
+text:`Innaiku mirror paatha,
+oru small smile kudu.<br><br>
+Mirror-ku kooda konjam
+good news venum. 😂`
+},
+
+/* 046 */
+{
+icon:"😂",
+title:"Overthinking department",
+text:`Overthinking Department
+innum work pannudha?<br><br>
+Close pannunga madam.
+Office hours mudinjiduchu. 😂`
+},
+
+/* 047 */
+{
+icon:"😂",
+title:"Breaking news",
+text:`BREAKING NEWS 📢<br><br>
+Unakku peaceful-aa irukka
+permission already approved. 😂`
+},
+
+/* 048 */
+{
+icon:"😂",
+title:"Technical issue",
+text:`Heart konjam tired.<br>
+Mind konjam confused.<br>
+Battery 12%. 😂<br><br>
+Solution:
+Rest + food + sleep.`
+},
+
+/* 049 */
+{
+icon:"😂",
+title:"Reminder",
+text:`Phone charge pannuvom.
+Internet charge pannuvom.<br><br>
+Mind-ku charge panna
+marakkadhe. 😌`
+},
+
+/* 050 */
+{
+icon:"😂",
+title:"Today rule",
+text:`Today rule:<br><br>
+Overthinking maximum
+30 minutes.<br><br>
+Adhukku mela fine. 😂`
+},
+
+/* 051 */
+{
+icon:"🌅",
+title:"Morning strength",
+text:`Morning-la first thought
+romba heavy-aa irundhaalum,
+whole day appadiye irukkanum-nu rule illa.`
+},
+
+/* 052 */
+{
+icon:"☀️",
+title:"Start again",
+text:`Yesterday epdi irundhaalum,
+today fresh page dhaan.<br><br>
+Small-aa start pannalam.`
+},
+
+/* 053 */
+{
+icon:"🍃",
+title:"Breathe",
+text:`Konjam phone-a side-la vechidu.<br><br>
+Deep breath edu.
+Room-la irukkura silence-ai
+konjam notice pannu.`
+},
+
+/* 054 */
+{
+icon:"☕",
+title:"Coffee thought",
+text:`Coffee hot-aa irukkattum.
+Thoughts konjam cool-aa irukkattum. ☕❤️`
+},
+
+/* 055 */
+{
+icon:"🌼",
+title:"Gentle day",
+text:`Innaiku unakku
+soft-aa oru day kidaikkattum.<br><br>
+No unnecessary pressure.`
+},
+
+/* 056 */
+{
+icon:"🌙",
+title:"Night",
+text:`Night-la old memories vandhaalum,
+adhoda pesi whole night
+awake-aa irukka vendam.<br><br>
+Rest is allowed.`
+},
+
+/* 057 */
+{
+icon:"🌙",
+title:"Sleep",
+text:`Innaiku solve panna mudiyadha
+problem-ai pillow mela
+vechuttu thoonga vendam.`
+},
+
+/* 058 */
+{
+icon:"⭐",
+title:"One star",
+text:`Sky full stars venam.<br><br>
+Oru star irundhaalum
+darkness-la adhu theriyum.`
+},
+
+/* 059 */
+{
+icon:"🌌",
+title:"Night thought",
+text:`Sila nights romba long-aa feel aagum.<br><br>
+Morning definitely different
+feel kudukkalam.`
+},
+
+/* 060 */
+{
+icon:"🕯️",
+title:"Calm",
+text:`Unakku peace venumna
+first un mind-kitta
+konjam gentle-aa pesu.`
+},
+
+/* 061 */
+{
+icon:"❤️",
+title:"Worth",
+text:`Yaaravadhu un value-ai
+purinjukkala-na,
+un value koraiyaadhu.`
+},
+
+/* 062 */
+{
+icon:"🌷",
+title:"No comparison",
+text:`Un journey-ai
+vera orutharoda journey-oda
+compare pannadhe.<br><br>
+Different people.
+Different timing.`
+},
+
+/* 063 */
+{
+icon:"🫂",
+title:"It's okay",
+text:`Sometimes “I don't know”
+nu sollradhu kooda okay.<br><br>
+Everything immediately
+figure out aaganum-nu illa.`
+},
+
+/* 064 */
+{
+icon:"💗",
+title:"Heart",
+text:`Heart-ku konjam time kudu.<br><br>
+Adhu machine illa.
+Button press panna instant-aa
+normal aagidathu.`
+},
+
+/* 065 */
+{
+icon:"🌿",
+title:"Healing",
+text:`Healing-ku fixed timetable illa.<br><br>
+Slow-aa nadandhaalum
+forward dhaan.`
+},
+
+/* 066 */
+{
+icon:"🫶",
+title:"You deserve peace",
+text:`Innaiku unakku thevaiyana
+one thing maybe happiness illa.<br><br>
+Peace-a irukkalam.`
+},
+
+/* 067 */
+{
+icon:"🌸",
+title:"Small smile",
+text:`Full day happy-aa irukka vendam.<br><br>
+Oru genuine smile vandhaa
+adha enjoy pannu.`
+},
+
+/* 068 */
+{
+icon:"💪",
+title:"Strength",
+text:`Strong people-ku kooda
+rest days irukkum.<br><br>
+Rest eduthadhu surrender illa.`
+},
+
+/* 069 */
+{
+icon:"🪷",
+title:"Still",
+text:`Lotus muddy water-la grow aagum.<br><br>
+Place difficult-aa irundhaalum,
+growth impossible illa.`
+},
+
+/* 070 */
+{
+icon:"✨",
+title:"Keep going",
+text:`Fast-aa poganum-nu illa.<br><br>
+Stop pannama konjam konjam
+move aagittu iru.`
+},
+
+/* 071 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un manasu tired-aa irukkumbodhu,
+un mela nee kobappada vendam.<br><br>
+Konjam amaidhi kodu.”`
+},
+
+/* 072 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un vazhiyil yaar vandhaalum,
+yaar ponaalum,
+un nadappai niruthadhe.<br><br>
+Un vazhi unnudaiyadhu.”`
+},
+
+/* 073 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku piditha manidhargal
+ellorum eppavum un pakkathil
+irukka mudiyama pogalam.<br><br>
+Aana un ullathil irukkum
+anbu poidum endru illa.”`
+},
+
+/* 074 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku enna nadandhadhu
+unakku theriyum.
+Adhai vera yaarum
+complete-aa purindhukolla vendiya
+avasiyamum illa.”`
+},
+
+/* 075 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un kannukku vazhi mudinjadhu pola
+therindhaalum,
+un payanam mudinjadhu
+endru ninaikka vendam.”`
+},
+
+/* 076 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku dhairiyam illadha
+oru naal vandhaal,
+en peyarai ninaichu
+oru adi podu.”`
+},
+
+/* 077 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku amaidhi venum endraal,
+first un manasai ketka kathukko.<br><br>
+Adhu pesum satham romba
+mellama irukkum.”`
+},
+
+/* 078 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Indha naal kadandhu pogum.<br><br>
+Nee innaiku unakku
+thevaiyana alavu mattum
+sumai sumandhaal podhum.”`
+},
+
+/* 079 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Unakku yaarum kai kodukkadha
+nerathilum,
+nee un kaiyai nee vida vendam.”`
+},
+
+/* 080 */
+{
+icon:"🕉️",
+title:"Swami Ayyappan",
+text:`SWAMI AYYAPPAN:<br><br>
+“Un vazhiyil irukkura
+ovvoru thadavaiyum
+unakku oru paadam sollalam.<br><br>
+Aana adhu unakku
+bayamaaga irukka vendiya
+kaaranam illa.”`
+},
+
+/* 081 */
+{
+icon:"✨",
+title:"Surprise",
+text:`Maybe innaiku
+nee expect pannadha oru
+nalla moment varalam.<br><br>
+Door open-aa vechiru. ❤️`
+},
+
+/* 082 */
+{
+icon:"🎁",
+title:"Unexpected",
+text:`Life sometimes gives
+small gifts without warning.<br><br>
+Notice the little ones.`
+},
+
+/* 083 */
+{
+icon:"🌈",
+title:"Better days",
+text:`Better days-na
+perfect days-nu illa.<br><br>
+Konjam lighter-aa irukkura days.`
+},
+
+/* 084 */
+{
+icon:"⭐",
+title:"Believe",
+text:`Un future-ai ippo full-aa
+see panna mudiyala-na
+parava illa.<br><br>
+Next step mattum paathaa podhum.`
+},
+
+/* 085 */
+{
+icon:"🌱",
+title:"New beginning",
+text:`New beginning-na
+always big announcement
+thevai illa.<br><br>
+Sometimes quietly
+start aagidum.`
+},
+
+/* 086 */
+{
+icon:"💫",
+title:"A tiny miracle",
+text:`Innaiku unexpected-aa
+oru nalla song kekka kidaikkalam.<br><br>
+Adhuvum count. 😌`
+},
+
+/* 087 */
+{
+icon:"🦋",
+title:"Change",
+text:`Butterfly aagura process
+beautiful-aa mattum irukkaadhu.<br><br>
+Change-ku konjam uncomfortable
+days irukkalam.`
+},
+
+/* 088 */
+{
+icon:"🌻",
+title:"Turn around",
+text:`Oru door close aagumbodhu
+immediately next door
+theriyaama irukkalam.<br><br>
+Konjam wait.`
+},
+
+/* 089 */
+{
+icon:"✨",
+title:"Hope",
+text:`Hope romba loud-aa irukka vendam.<br><br>
+Small-aa irundhaalum
+alive-aa irundha podhum.`
+},
+
+/* 090 */
+{
+icon:"🌙",
+title:"Peace will come",
+text:`Unakku ippo peace
+romba far-aa feel aagalam.<br><br>
+Aana far-aa irukkuradhu
+never varadhu-nu artham illa.`
+},
+
+/* 091 */
+{
+icon:"❤️",
+title:"Akash reminder",
+text:`Oru simple reminder:<br><br>
+Nee pesanum-na pesu.
+Silent-aa irukkanum-na silent-aa iru.<br><br>
+Unakku comfortable-aa irukkura
+way-la iru.`
+},
+
+/* 092 */
+{
+icon:"🫂",
+title:"No explanation",
+text:`Every feeling-ku explanation
+kudukka vendiya avasiyam illa.<br><br>
+Sometimes “I just feel this way”
+is enough.`
+},
+
+/* 093 */
+{
+icon:"🌸",
+title:"Take your time",
+text:`Unakku thevaiyana time-ai
+nee eduthukkalam.<br><br>
+Clock odudhu.
+Aana adhu un healing-ai
+control panna koodadhu.`
+},
+
+/* 094 */
+{
+icon:"💗",
+title:"Gentle reminder",
+text:`Unakku kashtama irukkura
+moment-la un mela
+harsh-aa irukka vendam.<br><br>
+Konjam kindness first.`
+},
+
+/* 095 */
+{
+icon:"🌿",
+title:"Breathe",
+text:`Oru deep breath.<br>
+Shoulders relax.<br>
+Konjam water.<br><br>
+Okay.
+Ippo continue pannalam. ❤️`
+},
+
+/* 096 */
+{
+icon:"☀️",
+title:"Tomorrow",
+text:`Naalai enna kondu varum-nu
+namakku theriyadhu.<br><br>
+Adhaan life interesting-aa irukku.`
+},
+
+/* 097 */
+{
+icon:"🪷",
+title:"Still here",
+text:`Sila days romba noisy-aa irukkum.
+Sila days silent-aa irukkum.<br><br>
+Rendum kadandhu pogum.`
+},
+
+/* 098 */
+{
+icon:"❤️",
+title:"One thing",
+text:`Nee tired-aa irundhaal
+rest edu.<br><br>
+Nee sad-aa irundhaal
+feel pannu.<br><br>
+Nee ready aana
+thirumbi nad.`
+},
+
+/* 099 */
+{
+icon:"🌙",
+title:"Before sleep",
+text:`Innaiku mudinjadhu mudinjiduchu.<br><br>
+Remaining thoughts-ai
+naalaikku vechukkalam.<br><br>
+Good night. ❤️`
+},
+
+/* 100 */
+{
+icon:"🫂",
+title:"Always",
+text:`Just remember one thing...<br><br>
+Naan un kooda dhaan irukken.
+Eppovume.<br>
+Bayapadatha. ❤️`
+}
+
+];
+
+
+/* ================================================= */
+/* NO REPEAT SYSTEM */
+/* ================================================= */
+
+let availableMessages = [];
+
+function resetMessagePool(){
+
+    availableMessages =
+        messages.map(function(_, index){
+            return index;
+        });
+
+}
+
+
+/* FIRST LOAD */
+
+resetMessagePool();
+
+
+/* ================================================= */
+/* SHOW TODAY */
+/* ================================================= */
+
+function showToday(){
+
+    document
+        .getElementById("daily")
+        .classList.add("show");
+
+    document
+        .getElementById("akash")
+        .classList.remove("show");
+
+    document
+        .getElementById("todayTab")
+        .classList.add("active");
+
+    document
+        .getElementById("akashTab")
+        .classList.remove("active");
+
+    nextMessage();
+
+    document
+        .getElementById("daily")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+}
+
+
+/* ================================================= */
+/* NEXT RANDOM UNIQUE MESSAGE */
+/* ================================================= */
+
+function nextMessage(){
+
+    if(availableMessages.length === 0){
+
+        resetMessagePool();
+
+    }
+
+
+    const randomPosition =
+        Math.floor(
+            Math.random() *
+            availableMessages.length
+        );
+
+
+    const messageIndex =
+        availableMessages[randomPosition];
+
+
+    availableMessages.splice(
+        randomPosition,
+        1
+    );
+
+
+    const message =
+        messages[messageIndex];
+
+
+    const card =
+        document.getElementById("dailyCard");
+
+
+    card.innerHTML = `
+
+        <div class="card-icon">
+            ${message.icon}
+        </div>
+
+        <div class="card-title">
+            ${message.title}
+        </div>
+
+        <div class="card-text">
+            ${message.text}
+        </div>
+
+        <div class="card-note">
+            A message for you ❤️
+        </div>
+
+    `;
+
+}
+
+
+/* ================================================= */
+/* AKASH */
+/* ================================================= */
+
+function showAkash(){
+
+    document
+        .getElementById("akash")
+        .classList.add("show");
+
+    document
+        .getElementById("daily")
+        .classList.remove("show");
+
+    document
+        .getElementById("akashTab")
+        .classList.add("active");
+
+    document
+        .getElementById("todayTab")
+        .classList.remove("active");
+
+    document
+        .getElementById("akash")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+}
+
+</script>
+
+</body>
+  </html>
